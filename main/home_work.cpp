@@ -1,7 +1,7 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 
-// Задание 1: Удаление символа с заданным номером
+// Р—Р°РґР°РЅРёРµ 1: РЈРґР°Р»РµРЅРёРµ СЃРёРјРІРѕР»Р° СЃ Р·Р°РґР°РЅРЅС‹Рј РЅРѕРјРµСЂРѕРј
 void removeCharAtPosition(char* str, int position) {
     if (position < 0) return;
     int i = 0;
@@ -16,7 +16,7 @@ void removeCharAtPosition(char* str, int position) {
     }
 }
 
-// Задание 2: Удаление всех вхождений заданного символа
+// Р—Р°РґР°РЅРёРµ 2: РЈРґР°Р»РµРЅРёРµ РІСЃРµС… РІС…РѕР¶РґРµРЅРёР№ Р·Р°РґР°РЅРЅРѕРіРѕ СЃРёРјРІРѕР»Р°
 void removeAllOccurrences(char* str, char ch) {
     int i = 0;
     while (str[i] != '\0') {
@@ -31,7 +31,7 @@ void removeAllOccurrences(char* str, char ch) {
     }
 }
 
-// Задание 3: Вставка символа в указанную позицию
+// Р—Р°РґР°РЅРёРµ 3: Р’СЃС‚Р°РІРєР° СЃРёРјРІРѕР»Р° РІ СѓРєР°Р·Р°РЅРЅСѓСЋ РїРѕР·РёС†РёСЋ
 void insertCharAtPosition(char* str, char ch, int position) {
     if (position < 0) return;
     int length = 0;
@@ -45,7 +45,7 @@ void insertCharAtPosition(char* str, char ch, int position) {
     str[position] = ch;
 }
 
-// Задание 4: Замена всех точек на восклицательные знаки
+// Р—Р°РґР°РЅРёРµ 4: Р—Р°РјРµРЅР° РІСЃРµС… С‚РѕС‡РµРє РЅР° РІРѕСЃРєР»РёС†Р°С‚РµР»СЊРЅС‹Рµ Р·РЅР°РєРё
 void replaceDotsWithExclamations(char* str) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == '.') {
@@ -54,7 +54,7 @@ void replaceDotsWithExclamations(char* str) {
     }
 }
 
-// Задание 5: Подсчет количества вхождений символа в строку
+// Р—Р°РґР°РЅРёРµ 5: РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РІС…РѕР¶РґРµРЅРёР№ СЃРёРјРІРѕР»Р° РІ СЃС‚СЂРѕРєСѓ
 int countCharOccurrences(const char* str, char ch) {
     int count = 0;
     for (int i = 0; str[i] != '\0'; i++) {
@@ -65,7 +65,7 @@ int countCharOccurrences(const char* str, char ch) {
     return count;
 }
 
-// Задание 6: Подсчет букв, цифр и остальных символов
+// Р—Р°РґР°РЅРёРµ 6: РџРѕРґСЃС‡РµС‚ Р±СѓРєРІ, С†РёС„СЂ Рё РѕСЃС‚Р°Р»СЊРЅС‹С… СЃРёРјРІРѕР»РѕРІ
 void countLettersDigitsOthers(const char* str, int& letters, int& digits, int& others) {
     letters = 0;
     digits = 0;
@@ -85,59 +85,59 @@ void countLettersDigitsOthers(const char* str, int& letters, int& digits, int& o
 
 int main() {
     setlocale(LC_ALL, "");
-    char str[1000]; // Буфер для строки
+    char str[1000]; // Р‘СѓС„РµСЂ РґР»СЏ СЃС‚СЂРѕРєРё
 
-    // Задание 1
-    cout << "Введите строку для задания 1: ";
+    // Р—Р°РґР°РЅРёРµ 1
+    cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ РґР»СЏ Р·Р°РґР°РЅРёСЏ 1: ";
     cin.getline(str, 1000);
     int position;
-    cout << "Введите позицию для удаления: ";
+    cout << "Р’РІРµРґРёС‚Рµ РїРѕР·РёС†РёСЋ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: ";
     cin >> position;
     cin.ignore();
     removeCharAtPosition(str, position);
-    cout << "Результат: " << str << endl;
+    cout << "Р РµР·СѓР»СЊС‚Р°С‚: " << str << endl;
 
-    // Задание 2
-    cout << "Введите строку для задания 2: ";
+    // Р—Р°РґР°РЅРёРµ 2
+    cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ РґР»СЏ Р·Р°РґР°РЅРёСЏ 2: ";
     cin.getline(str, 1000);
     char ch;
-    cout << "Введите символ для удаления: ";
+    cout << "Р’РІРµРґРёС‚Рµ СЃРёРјРІРѕР» РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: ";
     cin >> ch;
     cin.ignore();
     removeAllOccurrences(str, ch);
-    cout << "Результат: " << str << endl;
+    cout << "Р РµР·СѓР»СЊС‚Р°С‚: " << str << endl;
 
-    // Задание 3
-    cout << "Введите строку для задания 3: ";
+    // Р—Р°РґР°РЅРёРµ 3
+    cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ РґР»СЏ Р·Р°РґР°РЅРёСЏ 3: ";
     cin.getline(str, 1000);
-    cout << "Введите символ для вставки: ";
+    cout << "Р’РІРµРґРёС‚Рµ СЃРёРјРІРѕР» РґР»СЏ РІСЃС‚Р°РІРєРё: ";
     cin >> ch;
-    cout << "Введите позицию для вставки: ";
+    cout << "Р’РІРµРґРёС‚Рµ РїРѕР·РёС†РёСЋ РґР»СЏ РІСЃС‚Р°РІРєРё: ";
     cin >> position;
     cin.ignore();
     insertCharAtPosition(str, ch, position);
-    cout << "Результат: " << str << endl;
+    cout << "Р РµР·СѓР»СЊС‚Р°С‚: " << str << endl;
 
-    // Задание 4
-    cout << "Введите строку для задания 4: ";
+    // Р—Р°РґР°РЅРёРµ 4
+    cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ РґР»СЏ Р·Р°РґР°РЅРёСЏ 4: ";
     cin.getline(str, 1000);
     replaceDotsWithExclamations(str);
-    cout << "Результат: " << str << endl;
+    cout << "Р РµР·СѓР»СЊС‚Р°С‚: " << str << endl;
 
-    // Задание 5
-    cout << "Введите строку для задания 5: ";
+    // Р—Р°РґР°РЅРёРµ 5
+    cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ РґР»СЏ Р·Р°РґР°РЅРёСЏ 5: ";
     cin.getline(str, 1000);
-    cout << "Введите искомый символ: ";
+    cout << "Р’РІРµРґРёС‚Рµ РёСЃРєРѕРјС‹Р№ СЃРёРјРІРѕР»: ";
     cin >> ch;
     cin.ignore();
-    cout << "Количество вхождений: " << countCharOccurrences(str, ch) << endl;
+    cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ РІС…РѕР¶РґРµРЅРёР№: " << countCharOccurrences(str, ch) << endl;
 
-    // Задание 6
-    cout << "Введите строку для задания 6: ";
+    // Р—Р°РґР°РЅРёРµ 6
+    cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ РґР»СЏ Р·Р°РґР°РЅРёСЏ 6: ";
     cin.getline(str, 1000);
     int letters, digits, others;
     countLettersDigitsOthers(str, letters, digits, others);
-    cout << "Букв: " << letters << ", цифр: " << digits << ", остальных символов: " << others << endl;
+    cout << "Р‘СѓРєРІ: " << letters << ", С†РёС„СЂ: " << digits << ", РѕСЃС‚Р°Р»СЊРЅС‹С… СЃРёРјРІРѕР»РѕРІ: " << others << endl;
 
     return 0;
 }
