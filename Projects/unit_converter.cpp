@@ -27,7 +27,8 @@ void convertTemperature()
         double result = (value - 32) * 5.0 / 9.0;
         cout << value << " °F = " << result << " °C\n";
     }
-    else {
+    else
+    {
         cout << "Некорректный выбор.\n";
     }
 }
