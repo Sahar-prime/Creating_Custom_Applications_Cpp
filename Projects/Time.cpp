@@ -3,21 +3,25 @@
 
 using namespace std;
 
-struct Time {
+struct Time
+{
     int hours;
     int minutes;
     int seconds;
 };
 
-void printTime(const Time& t) {
+void printTime(const Time& t)
+{
     cout << (t.hours < 10 ? "0" : "") << t.hours << ":"
         << (t.minutes < 10 ? "0" : "") << t.minutes << ":"
         << (t.seconds < 10 ? "0" : "") << t.seconds << endl;
 }
 
-Time normalizeTime(Time t) {
+Time normalizeTime(Time t) 
+{
     // Нормализация секунд
-    if (t.seconds < 0) {
+    if (t.seconds < 0)
+    {
         t.seconds += 60;
         t.minutes--;
     }
@@ -25,7 +29,8 @@ Time normalizeTime(Time t) {
     t.seconds %= 60;
 
     // Нормализация минут
-    if (t.minutes < 0) {
+    if (t.minutes < 0)
+    {
         t.minutes += 60;
         t.hours--;
     }
@@ -34,31 +39,36 @@ Time normalizeTime(Time t) {
 
     // Нормализация часов
     t.hours %= 24;
-    if (t.hours < 0) {
+    if (t.hours < 0)
+    {
         t.hours += 24;
     }
 
     return t;
 }
 
-Time addTime(const Time& t, int h, int m, int s) {
+Time addTime(const Time& t, int h, int m, int s)
+{
     Time result = { t.hours + h, t.minutes + m, t.seconds + s };
     return normalizeTime(result);
 }
 
-Time subtractTime(const Time& t, int h, int m, int s) {
+Time subtractTime(const Time& t, int h, int m, int s)
+{
     return addTime(t, -h, -m, -s);
 }
 
 #ifdef TIME
-int main() {
+int main()
+{
     setlocale(LC_ALL, "");
     Time currentTime;
     cout << "Введите текущее время (часы минуты секунды): ";
     cin >> currentTime.hours >> currentTime.minutes >> currentTime.seconds;
 
     int choice;
-    do {
+    do 
+    {
         cout << "\nТекущее время: ";
         printTime(currentTime);
 
@@ -69,15 +79,18 @@ int main() {
         cout << "Выберите действие: ";
         cin >> choice;
 
-        if (choice == 1 || choice == 2) {
+        if (choice == 1 || choice == 2)
+        {
             int h, m, s;
             cout << "Введите часы, минуты, секунды: ";
             cin >> h >> m >> s;
 
-            if (choice == 1) {
+            if (choice == 1) 
+            {
                 currentTime = addTime(currentTime, h, m, s);
             }
-            else {
+            else
+            {
                 currentTime = subtractTime(currentTime, h, m, s);
             }
         }

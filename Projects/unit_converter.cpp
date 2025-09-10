@@ -17,11 +17,13 @@ void convertTemperature()
     cout << "Введите значение: ";
     cin >> value;
 
-    if (choice == 1) {
+    if (choice == 1) 
+    {
         double result = value * 9.0 / 5.0 + 32;
         cout << value << " °C = " << result << " °F\n";
     }
-    else if (choice == 2) {
+    else if (choice == 2) 
+    {
         double result = (value - 32) * 5.0 / 9.0;
         cout << value << " °F = " << result << " °C\n";
     }
@@ -87,21 +89,25 @@ void convertMass()
     cout << "Введите значение: ";
     cin >> value;
 
-    if (choice == 1) {
+    if (choice == 1)
+    {
         double result = value * 2.20462;
         cout << value << " кг = " << result << " фунтов\n";
     }
-    else if (choice == 2) {
+    else if (choice == 2) 
+    {
         double result = value / 2.20462;
         cout << value << " фунтов = " << result << " кг\n";
     }
-    else {
+    else 
+    {
         cout << "Некорректный выбор.\n";
     }
 }
 
 #ifdef UNIT_CONVERTER
-int main() {
+int main() 
+{
     setlocale(LC_ALL, "");
     int choice;
     do
@@ -114,7 +120,8 @@ int main() {
         cout << "Ваш выбор: ";
         cin >> choice;
 
-        switch (choice) {
+        switch (choice) 
+        {
         case 1:
             convertTemperature();
             break;

@@ -27,7 +27,8 @@ bool isLeapYear(int year)
 
 int daysInMonth(int month, int year) 
 {
-    switch (month) {
+    switch (month) 
+    {
     case 1: case 3: case 5: case 7: case 8: case 10: case 12:
         return 31;
     case 4: case 6: case 9: case 11:
@@ -65,11 +66,14 @@ void printDate(const Date& date)
 // Пузырьковая сортировка
 void bubbleSort(Date dates[], int n) 
 {
-    for (int i = 0; i < n - 1; ++i) {
-        for (int j = 0; j < n - i - 1; ++j) {
+    for (int i = 0; i < n - 1; ++i)
+    {
+        for (int j = 0; j < n - i - 1; ++j) 
+        {
             if (dates[j].year > dates[j + 1].year ||
                 (dates[j].year == dates[j + 1].year && dates[j].month > dates[j + 1].month) ||
-                (dates[j].year == dates[j + 1].year && dates[j].month == dates[j + 1].month && dates[j].day > dates[j + 1].day)) {
+                (dates[j].year == dates[j + 1].year && dates[j].month == dates[j + 1].month && dates[j].day > dates[j + 1].day))
+            {
                 swap(dates[j], dates[j + 1]);
             }
         }
@@ -77,7 +81,8 @@ void bubbleSort(Date dates[], int n)
 }
 
 #ifdef DATE
-int main() {
+int main()
+{
     setlocale(LC_ALL, "");
     int N, minYear, maxYear;
     cout << "Введите количество случайных дат (N): ";
@@ -90,22 +95,26 @@ int main() {
     Date dates[1000]; // Предполагаем, что N <= 1000
     int count = 0;
 
-    while (count < N) {
+    while (count < N) 
+    {
         Date date = generateRandomDate(minYear, maxYear);
-        if (isValidDate(date)) {
+        if (isValidDate(date))
+        {
             dates[count++] = date;
         }
     }
 
     cout << "\nСгенерированные даты:\n";
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < N; ++i) 
+    {
         printDate(dates[i]);
     }
 
     bubbleSort(dates, N);
 
     cout << "\nОтсортированные даты:\n";
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < N; ++i)
+    {
         printDate(dates[i]);
     }
 
