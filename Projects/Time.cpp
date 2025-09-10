@@ -10,6 +10,7 @@ struct Time
     int seconds;
 };
 
+//Вывод времени
 void printTime(const Time& t)
 {
     cout << (t.hours < 10 ? "0" : "") << t.hours << ":"
@@ -17,6 +18,7 @@ void printTime(const Time& t)
         << (t.seconds < 10 ? "0" : "") << t.seconds << endl;
 }
 
+//Нормализация времени
 Time normalizeTime(Time t) 
 {
     // Нормализация секунд
@@ -47,12 +49,14 @@ Time normalizeTime(Time t)
     return t;
 }
 
+//Добавление времени
 Time addTime(const Time& t, int h, int m, int s)
 {
     Time result = { t.hours + h, t.minutes + m, t.seconds + s };
     return normalizeTime(result);
 }
 
+//Вычитание времени
 Time subtractTime(const Time& t, int h, int m, int s)
 {
     return addTime(t, -h, -m, -s);

@@ -18,6 +18,7 @@ unsigned int simpleRand()
     return seed;
 }
 
+//проверка високосного года
 bool isLeapYear(int year) 
 {
     if (year % 4 != 0) return false;
@@ -25,6 +26,7 @@ bool isLeapYear(int year)
     return (year % 400 == 0);
 }
 
+//Количество дней в месяце
 int daysInMonth(int month, int year) 
 {
     switch (month) 
@@ -40,6 +42,7 @@ int daysInMonth(int month, int year)
     }
 }
 
+//Проверка корректности даты
 bool isValidDate(const Date& date) 
 {
     if (date.year < 1 || date.month < 1 || date.month > 12 || date.day < 1)
@@ -47,6 +50,7 @@ bool isValidDate(const Date& date)
     return date.day <= daysInMonth(date.month, date.year);
 }
 
+//Генерация случайной даты
 Date generateRandomDate(int minYear, int maxYear)
 {
     Date date;
@@ -56,6 +60,7 @@ Date generateRandomDate(int minYear, int maxYear)
     return date;
 }
 
+//Вывод даты
 void printDate(const Date& date) 
 {
     cout << (date.day < 10 ? "0" : "") << date.day << "."
