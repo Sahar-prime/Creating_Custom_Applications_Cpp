@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 //#define TIME
 
 using namespace std;
@@ -10,7 +10,7 @@ struct Time
     int seconds;
 };
 
-//Вывод времени
+//Р’С‹РІРѕРґ РІСЂРµРјРµРЅРё
 void printTime(const Time& t)
 {
     cout << (t.hours < 10 ? "0" : "") << t.hours << ":"
@@ -18,10 +18,10 @@ void printTime(const Time& t)
         << (t.seconds < 10 ? "0" : "") << t.seconds << endl;
 }
 
-//Нормализация времени
+//РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ РІСЂРµРјРµРЅРё
 Time normalizeTime(Time t) 
 {
-    // Нормализация секунд
+    // РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ СЃРµРєСѓРЅРґ
     if (t.seconds < 0)
     {
         t.seconds += 60;
@@ -30,7 +30,7 @@ Time normalizeTime(Time t)
     t.minutes += t.seconds / 60;
     t.seconds %= 60;
 
-    // Нормализация минут
+    // РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ РјРёРЅСѓС‚
     if (t.minutes < 0)
     {
         t.minutes += 60;
@@ -39,7 +39,7 @@ Time normalizeTime(Time t)
     t.hours += t.minutes / 60;
     t.minutes %= 60;
 
-    // Нормализация часов
+    // РќРѕСЂРјР°Р»РёР·Р°С†РёСЏ С‡Р°СЃРѕРІ
     t.hours %= 24;
     if (t.hours < 0)
     {
@@ -49,14 +49,14 @@ Time normalizeTime(Time t)
     return t;
 }
 
-//Добавление времени
+//Р”РѕР±Р°РІР»РµРЅРёРµ РІСЂРµРјРµРЅРё
 Time addTime(const Time& t, int h, int m, int s)
 {
     Time result = { t.hours + h, t.minutes + m, t.seconds + s };
     return normalizeTime(result);
 }
 
-//Вычитание времени
+//Р’С‹С‡РёС‚Р°РЅРёРµ РІСЂРµРјРµРЅРё
 Time subtractTime(const Time& t, int h, int m, int s)
 {
     return addTime(t, -h, -m, -s);
@@ -67,26 +67,26 @@ int main()
 {
     setlocale(LC_ALL, "");
     Time currentTime;
-    cout << "Введите текущее время (часы минуты секунды): ";
+    cout << "Р’РІРµРґРёС‚Рµ С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ (С‡Р°СЃС‹ РјРёРЅСѓС‚С‹ СЃРµРєСѓРЅРґС‹): ";
     cin >> currentTime.hours >> currentTime.minutes >> currentTime.seconds;
 
     int choice;
     do 
     {
-        cout << "\nТекущее время: ";
+        cout << "\nРўРµРєСѓС‰РµРµ РІСЂРµРјСЏ: ";
         printTime(currentTime);
 
-        cout << "\nМеню:\n";
-        cout << "1. Прибавить время\n";
-        cout << "2. Вычесть время\n";
-        cout << "3. Выйти\n";
-        cout << "Выберите действие: ";
+        cout << "\nРњРµРЅСЋ:\n";
+        cout << "1. РџСЂРёР±Р°РІРёС‚СЊ РІСЂРµРјСЏ\n";
+        cout << "2. Р’С‹С‡РµСЃС‚СЊ РІСЂРµРјСЏ\n";
+        cout << "3. Р’С‹Р№С‚Рё\n";
+        cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ";
         cin >> choice;
 
         if (choice == 1 || choice == 2)
         {
             int h, m, s;
-            cout << "Введите часы, минуты, секунды: ";
+            cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‹, РјРёРЅСѓС‚С‹, СЃРµРєСѓРЅРґС‹: ";
             cin >> h >> m >> s;
 
             if (choice == 1) 
