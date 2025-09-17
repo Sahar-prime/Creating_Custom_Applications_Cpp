@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 //#define MAIN
 
@@ -35,7 +35,7 @@ int main()
 	x = &a;
 	std::cout << *x << " " << x << std::endl;
 	std::cout << b << " " << &b << std::endl;
-	//*x - ðàçìåíîâûâàíèå
+	//*x - Ñ€Ð°Ð·Ð¼ÐµÐ½Ð¾Ð²Ñ‹Ð²Ð°Ð½Ð¸Ðµ
 	y = &b;
 	std::cout << *y << " " << y << std::endl;
 	x = y;
@@ -112,9 +112,9 @@ int main()
 	
 #ifdef TASK
 	int size1, size2;
-	std::cout << "Ââåäèòå ðàçìåð ïåðâîãî ìàññèâà: ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¿ÐµÑ€Ð²Ð¾Ð³Ð¾ Ð¼Ð°ÑÑÐ¸Ð²Ð°: ";
 	std::cin >> size1;
-	std::cout << "Ââåäèòå ðàçìåð âòîðîãî ìàññèâà: ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð²Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ Ð¼Ð°ÑÑÐ¸Ð²Ð°: ";
 	std::cin >> size2;
 
 	int* arr1 = new int[size1];
@@ -131,13 +131,13 @@ int main()
 		arr2[i] = (seed % 100) + 1;
 	}
 
-	std::cout << "Ïåðâûé ìàññèâ: ";
+	std::cout << "ÐŸÐµÑ€Ð²Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: ";
 	for (int i = 0; i < size1; ++i) {
 		std::cout << arr1[i] << " ";
 	}
 	std::cout << std::endl;
 
-	std::cout << "Âòîðîé ìàññèâ: ";
+	std::cout << "Ð’Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: ";
 	for (int i = 0; i < size2; ++i) {
 		std::cout << arr2[i] << " ";
 	}
@@ -151,7 +151,7 @@ int main()
 		arr3[size1 + i] = arr2[i];
 	}
 
-	std::cout << "Îáúåäèí¸ííûé ìàññèâ: ";
+	std::cout << "ÐžÐ±ÑŠÐµÐ´Ð¸Ð½Ñ‘Ð½Ð½Ñ‹Ð¹ Ð¼Ð°ÑÑÐ¸Ð²: ";
 	for (int i = 0; i < size1 + size2; ++i) {
 		std::cout << arr3[i] << " ";
 	}
