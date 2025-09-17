@@ -1,4 +1,7 @@
 ﻿#include <iostream>
+
+//#define HOME_WORK
+
 using namespace std;
 
 // Задание 1: Удаление символа с заданным номером
@@ -83,7 +86,9 @@ void countLettersDigitsOthers(const char* str, int& letters, int& digits, int& o
     }
 }
 
-int main() {
+#ifdef HOME_WORK
+int main()
+{
     setlocale(LC_ALL, "");
     char str[1000]; // Буфер для строки
 
@@ -141,3 +146,4 @@ int main() {
 
     return 0;
 }
+#endif //HOME_WORK
