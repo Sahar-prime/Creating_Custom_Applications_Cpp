@@ -5,12 +5,16 @@
 using namespace std;
 
 // Задание 1: Удаление символа с заданным номером
-void removeCharAtPosition(char* str, int position) {
+void removeCharAtPosition(char* str, int position) 
+{
     if (position < 0) return;
     int i = 0;
-    while (str[i] != '\0') {
-        if (i == position) {
-            for (int j = i; str[j] != '\0'; j++) {
+    while (str[i] != '\0') 
+    {
+        if (i == position)
+        {
+            for (int j = i; str[j] != '\0'; j++) 
+            {
                 str[j] = str[j + 1];
             }
             break;
@@ -20,11 +24,15 @@ void removeCharAtPosition(char* str, int position) {
 }
 
 // Задание 2: Удаление всех вхождений заданного символа
-void removeAllOccurrences(char* str, char ch) {
+void removeAllOccurrences(char* str, char ch) 
+{
     int i = 0;
-    while (str[i] != '\0') {
-        if (str[i] == ch) {
-            for (int j = i; str[j] != '\0'; j++) {
+    while (str[i] != '\0') 
+    {
+        if (str[i] == ch) 
+        {
+            for (int j = i; str[j] != '\0'; j++)
+            {
                 str[j] = str[j + 1];
             }
         }
@@ -35,22 +43,26 @@ void removeAllOccurrences(char* str, char ch) {
 }
 
 // Задание 3: Вставка символа в указанную позицию
-void insertCharAtPosition(char* str, char ch, int position) {
+void insertCharAtPosition(char* str, char ch, int position)
+{
     if (position < 0) return;
     int length = 0;
     while (str[length] != '\0') length++;
 
     if (position > length) position = length;
 
-    for (int i = length; i >= position; i--) {
+    for (int i = length; i >= position; i--)
+    {
         str[i + 1] = str[i];
     }
     str[position] = ch;
 }
 
 // Задание 4: Замена всех точек на восклицательные знаки
-void replaceDotsWithExclamations(char* str) {
-    for (int i = 0; str[i] != '\0'; i++) {
+void replaceDotsWithExclamations(char* str)
+{
+    for (int i = 0; str[i] != '\0'; i++) 
+    {
         if (str[i] == '.') {
             str[i] = '!';
         }
@@ -58,10 +70,13 @@ void replaceDotsWithExclamations(char* str) {
 }
 
 // Задание 5: Подсчет количества вхождений символа в строку
-int countCharOccurrences(const char* str, char ch) {
+int countCharOccurrences(const char* str, char ch) 
+{
     int count = 0;
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] == ch) {
+    for (int i = 0; str[i] != '\0'; i++) 
+    {
+        if (str[i] == ch) 
+        {
             count++;
         }
     }
@@ -69,18 +84,23 @@ int countCharOccurrences(const char* str, char ch) {
 }
 
 // Задание 6: Подсчет букв, цифр и остальных символов
-void countLettersDigitsOthers(const char* str, int& letters, int& digits, int& others) {
+void countLettersDigitsOthers(const char* str, int& letters, int& digits, int& others)
+{
     letters = 0;
     digits = 0;
     others = 0;
-    for (int i = 0; str[i] != '\0'; i++) {
-        if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) {
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) 
+        {
             letters++;
         }
-        else if (str[i] >= '0' && str[i] <= '9') {
+        else if (str[i] >= '0' && str[i] <= '9') 
+        {
             digits++;
         }
-        else {
+        else 
+        {
             others++;
         }
     }
