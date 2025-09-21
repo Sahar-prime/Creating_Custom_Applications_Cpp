@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 
 //#define TASK_2
 //#define TASK_3
@@ -6,17 +6,17 @@
 #ifdef TASK_2
 void reverseArray(int* arr, int size)
 {
-    int* start = arr;          // Указатель на начало массива
-    int* end = arr + size - 1; // Указатель на конец массива
+    int* start = arr;          // РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ РјР°СЃСЃРёРІР°
+    int* end = arr + size - 1; // РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅРµС† РјР°СЃСЃРёРІР°
 
     while (start < end)
     {
-        // Меняем местами элементы, на которые указывают start и end
+        // РњРµРЅСЏРµРј РјРµСЃС‚Р°РјРё СЌР»РµРјРµРЅС‚С‹, РЅР° РєРѕС‚РѕСЂС‹Рµ СѓРєР°Р·С‹РІР°СЋС‚ start Рё end
         int temp = *start;
         *start = *end;
         *end = temp;
 
-        // Продвигаем указатели к центру массива
+        // РџСЂРѕРґРІРёРіР°РµРј СѓРєР°Р·Р°С‚РµР»Рё Рє С†РµРЅС‚СЂСѓ РјР°СЃСЃРёРІР°
         ++start;
         --end;
     }
@@ -28,7 +28,7 @@ int main()
     int arr[] = { 1, 2, 3, 4, 5 };
     int size = sizeof(arr) / sizeof(arr[0]);
 
-    std::cout << "Исходный массив: ";
+    std::cout << "РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ: ";
     for (int i = 0; i < size; ++i)
     {
         std::cout << arr[i] << " ";
@@ -37,7 +37,7 @@ int main()
 
     reverseArray(arr, size);
 
-    std::cout << "Перевернутый массив: ";
+    std::cout << "РџРµСЂРµРІРµСЂРЅСѓС‚С‹Р№ РјР°СЃСЃРёРІ: ";
     for (int i = 0; i < size; ++i)
     {
         std::cout << arr[i] << " ";
@@ -49,14 +49,14 @@ int main()
 #ifdef TASK_3
 void reverseCopy(int* source, int* dest, int size) 
 {
-    int* srcPtr = source;// Указатель на начало исходного массива
-    int* destPtr = dest + size - 1;// Указатель на конец целевого массива
+    int* srcPtr = source;// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ РёСЃС…РѕРґРЅРѕРіРѕ РјР°СЃСЃРёРІР°
+    int* destPtr = dest + size - 1;// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅРµС† С†РµР»РµРІРѕРіРѕ РјР°СЃСЃРёРІР°
 
     for (int i = 0; i < size; ++i)
     {
-        *destPtr = *srcPtr; // Копируем элемент из source в dest в обратном порядке
-        ++srcPtr;           // Продвигаем указатель source вперед
-        --destPtr;          // Продвигаем указатель dest назад
+        *destPtr = *srcPtr; // РљРѕРїРёСЂСѓРµРј СЌР»РµРјРµРЅС‚ РёР· source РІ dest РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ
+        ++srcPtr;           // РџСЂРѕРґРІРёРіР°РµРј СѓРєР°Р·Р°С‚РµР»СЊ source РІРїРµСЂРµРґ
+        --destPtr;          // РџСЂРѕРґРІРёРіР°РµРј СѓРєР°Р·Р°С‚РµР»СЊ dest РЅР°Р·Р°Рґ
     }
 }
 
@@ -66,24 +66,24 @@ int main()
     int source[] = { 1, 2, 3, 4, 5 };
     int size = sizeof(source) / sizeof(source[0]);
 
-    int* dest = new int[size]; // Динамическое выделение памяти
+    int* dest = new int[size]; // Р”РёРЅР°РјРёС‡РµСЃРєРѕРµ РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё
 
     reverseCopy(source, dest, size);
 
-    std::cout << "Исходный массив: ";
+    std::cout << "РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ: ";
     for (int i = 0; i < size; ++i) 
     {
         std::cout << source[i] << " ";
     }
     std::cout << std::endl;
 
-    std::cout << "Копия в обратном порядке: ";
+    std::cout << "РљРѕРїРёСЏ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ: ";
     for (int i = 0; i < size; ++i) 
     {
         std::cout << dest[i] << " ";
     }
     std::cout << std::endl;
 
-    delete[] dest; // Освобождение памяти
+    delete[] dest; // РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 }
 #endif //TASK_3
