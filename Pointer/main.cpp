@@ -1,15 +1,21 @@
 #include <iostream>
 
+//#define MAIN
+
+#ifdef MAIN
 int main() 
 {
 	setlocale(LC_ALL, "");
 
+	//генерация случайных чисел
 	srand(time(nullptr));
 	int a = rand();
 	std::cout << a % 11+10 << std::endl; //a% - сколько чисел + с какого начать
 	std::cout << a % 5 - 2 << std::endl;
 	int start = 763, end = 871;
 	std::cout << rand() % (end - start + 1) + start << std::endl;
+
+	//генерация случайных массив
 	int size;
 	std::cout << "Введите кол-во элементов: ";
 	std::cin >> size;
@@ -25,6 +31,7 @@ int main()
 	}
 	std::cout << std::endl;
 
+	//добавление числа в массив
 	int newnumber;
 	std::cout << "Введите добавляемое число: ";
 	std::cin >> newnumber;
@@ -44,6 +51,7 @@ int main()
 	}
 	std::cout << std::endl;
 
+	//удаление числа из массива
 	int* arr3 = new int[size - 1];
 	for (int i = 0; i < size-1; i++) 
 	{
@@ -59,3 +67,4 @@ int main()
 	}
 	std::cout << std::endl;
 }
+#endif//MAIN
