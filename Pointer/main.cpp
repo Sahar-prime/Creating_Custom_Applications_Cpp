@@ -4,6 +4,26 @@
 //#define PART1
 //#define PART2
 
+// Функция для транспонирования матрицы
+int** transposeMatrix(int** matrix, int rows, int cols) 
+{
+	// Создаём новую матрицу с размерами cols x rows
+	int** transposed = new int* [cols];
+	for (int i = 0; i < cols; i++)
+	{
+		transposed[i] = new int[rows];
+	}
+	// Заполняем новую матрицу транспонированными элементами
+	for (int i = 0; i < rows; i++) 
+	{
+		for (int j = 0; j < cols; j++) 
+		{
+			transposed[j][i] = matrix[i][j];
+		}
+	}
+	return transposed;
+}
+
 #ifdef MAIN
 int main()
 {
@@ -143,7 +163,7 @@ int main()
 	std::cout << std::endl;
 #endif //PART1
 #ifdef PART2
-	//двухмерные массивы
+	// Двухмерные массивы
 	int rows, cols;
 	std::cout << "Введите размеры массива: ";
 	std::cin >> rows >> cols;
@@ -152,7 +172,7 @@ int main()
 	{
 		arr[i] = new int[cols];
 	}
-	//генерация двухмерного массива
+	// Генерация двухмерного массива
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
@@ -160,7 +180,7 @@ int main()
 			arr[i][j] = rand() % 10;
 		}
 	}
-	//вывод двухмерного массива
+	// Вывод двухмерного массива
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
@@ -170,14 +190,14 @@ int main()
 		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-	//удаление двухмерного массива
+	// Удаление двухмерного массива
 	for (int i = 0; i < rows; i++)
 	{
 		delete[]arr[i];
 	}
 	delete[]arr;
 
-	//трехмерные массивы
+	// Трехмерные массивы
 	int a, b, c;
 	std::cout << "Введите размеры массива: ";
 	std::cin >> a >> b >> c;
@@ -190,7 +210,7 @@ int main()
 			arr2[i][j] = new int[c];
 		}
 	}
-	//генерация двухмерного массива
+	// Генерация двухмерного массива
 	for (int i = 0; i < a; i++)
 	{
 		for (int j = 0; j < b; j++)
@@ -201,7 +221,7 @@ int main()
 			}
 		}
 	}
-	//вывод двухмерного массива
+	// Вывод двухмерного массива
 	for (int i = 0; i < a; i++)
 	{
 		for (int j = 0; j < b; j++)
@@ -214,7 +234,7 @@ int main()
 		}
 		std::cout << std::endl;
 	}
-	//удаление двухмерного массива
+	// Удаление двухмерного массива
 	for (int i = 0; i < a; i++)
 	{
 		for (int j = 0; j < b; j++)
@@ -225,7 +245,7 @@ int main()
 	}
 	delete[]arr2;
 
-	//четырехмерные массивы
+	// Четырехмерные массивы
 	int e, f, g, h;
 	std::cout << "Введите размеры массива: ";
 	std::cin >> e >> f >> g >> h;
@@ -288,7 +308,124 @@ int main()
 		delete[] arr4[i];
 	}
 	delete[] arr4;
+	
+	// Попарное сложение строк трехмерного массива
+	int rows3, cols3;
+	std::cout << "Введите размеры массива: ";
+	std::cin >> rows3 >> cols3;
+	// Создание и заполнение исходного массива
+	int** arr5 = new int* [rows3];
+	for (int i = 0; i < rows3; i++) 
+	{
+		arr5[i] = new int[cols3];
+	}
+	// Заполнение массива случайными числами (без rand())
+	for (int i = 0; i < rows3; i++)
+	{
+		for (int j = 0; j < cols3; j++)
+		{
+			arr5[i][j] = (i * cols3 + j) % 10; // Простое заполнение для примера
+		}
+	}
+	// Вывод исходного массива
+	std::cout << "Исходный массив:" << std::endl;
+	for (int i = 0; i < rows3; i++) 
+	{
+		for (int j = 0; j < cols3; j++) 
+		{
+			std::cout << arr5[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+	// Определение размера нового массива
+	int newCols = (cols3 + 1) / 2; // Округление вверх
+	int** newArr = new int* [rows3];
+	for (int i = 0; i < rows3; i++) 
+	{
+		newArr[i] = new int[newCols];
+	}
+	// Суммирование элементов попарно
+	for (int i = 0; i < rows3; i++)
+	{
+		for (int j = 0; j < newCols; j++) 
+		{
+			int sum = arr5[i][2 * j];
+			if (2 * j + 1 < cols)
+			{
+				sum += arr5[i][2 * j + 1];
+			}
+			newArr[i][j] = sum;
+		}
+	}
+	// Вывод нового массива
+	std::cout << "\nНовый массив (попарные суммы):" << std::endl;
+	for (int i = 0; i < rows3; i++)
+	{
+		for (int j = 0; j < newCols; j++)
+		{
+			std::cout << newArr[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+	// Удаление массивов
+	for (int i = 0; i < rows3; i++) 
+	{
+		delete[] arr5[i];
+		delete[] newArr[i];
+	}
+	delete[] arr5;
+	delete[] newArr;
 
+	// Транспонирование матрицы двухмерного массива
+	int rows6, cols6;
+	std::cout << "Введите размеры массива: ";
+	std::cin >> rows6 >> cols6;
+	// Создание и заполнение исходной матрицы
+	int** arr6 = new int* [rows6];
+	for (int i = 0; i < rows6; i++)
+	{
+		arr6[i] = new int[cols6];
+	}
+	for (int i = 0; i < rows6; i++) 
+	{
+		for (int j = 0; j < cols6; j++) 
+		{
+			arr6[i][j] = rand() % 10;
+		}
+	}
+	// Вывод исходной матрицы
+	std::cout << "Исходная матрица:" << std::endl;
+	for (int i = 0; i < rows6; i++) 
+	{
+		for (int j = 0; j < cols6; j++) 
+		{
+			std::cout << arr6[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+	// Использование функции
+	int** transposedArr = transposeMatrix(arr6, rows6, cols6);
+	// Вывод транспонированной матрицы
+	std::cout << "\nТранспонированная матрица:" << std::endl;
+	for (int i = 0; i < cols6; i++)
+	{
+		for (int j = 0; j < rows6; j++) 
+		{
+			std::cout << transposedArr[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+	// Освобождение памяти
+	for (int i = 0; i < rows6; i++) 
+	{
+		delete[] arr6[i];
+	}
+	delete[] arr6;
+	for (int i = 0; i < cols6; i++)
+	{
+		delete[] transposedArr[i];
+	}
+	delete[] transposedArr;
 #endif //PART2
 }
 #endif//MAIN
