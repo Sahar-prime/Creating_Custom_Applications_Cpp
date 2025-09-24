@@ -21,7 +21,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="h_w.cpp">
+    <ClCompile Include="H_W.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

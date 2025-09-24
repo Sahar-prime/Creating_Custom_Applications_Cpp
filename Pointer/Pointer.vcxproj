@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="home_work.cpp" />
-    <ClCompile Include="h_w.cpp" />
+    <ClCompile Include="H_W.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

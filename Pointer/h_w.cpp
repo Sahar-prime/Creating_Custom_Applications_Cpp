@@ -11,7 +11,7 @@ int main()
     std::cin >> size_main;
 
     int* arr_main = new int[size_main];
-    for (int i = 0; i < size_main; i++) 
+    for (int i = 0; i < size_main; i++)
     {
         arr_main[i] = rand() % 10;
     }
@@ -56,7 +56,7 @@ int main()
     size_main = new_size;
 
     std::cout << "Массив после удаления:\n";
-    for (int i = 0; i < size_main; i++) 
+    for (int i = 0; i < size_main; i++)
     {
         std::cout << arr_main[i] << " ";
     }
