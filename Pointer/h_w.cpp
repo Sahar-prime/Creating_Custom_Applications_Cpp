@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 
 //#define H_W
 
@@ -7,7 +7,7 @@ int main()
 {
     setlocale(LC_ALL, "");
     int size_main;
-    std::cout << "Введи размер основного массива: ";
+    std::cout << "Р’РІРµРґРё СЂР°Р·РјРµСЂ РѕСЃРЅРѕРІРЅРѕРіРѕ РјР°СЃСЃРёРІР°: ";
     std::cin >> size_main;
 
     int* arr_main = new int[size_main];
@@ -16,7 +16,7 @@ int main()
         arr_main[i] = rand() % 10;
     }
 
-    std::cout << "Исходный массив:\n";
+    std::cout << "РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ:\n";
     for (int i = 0; i < size_main; i++)
     {
         std::cout << arr_main[i] << " ";
@@ -24,28 +24,28 @@ int main()
     std::cout << std::endl;
 
     int pos, length;
-    std::cout << "Введите позицию начала удаления: ";
+    std::cout << "Р’РІРµРґРёС‚Рµ РїРѕР·РёС†РёСЋ РЅР°С‡Р°Р»Р° СѓРґР°Р»РµРЅРёСЏ: ";
     std::cin >> pos;
-    std::cout << "Введите количество удаляемых элементов: ";
+    std::cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СѓРґР°Р»СЏРµРјС‹С… СЌР»РµРјРµРЅС‚РѕРІ: ";
     std::cin >> length;
 
-    // Проверка корректности ввода
+    // РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РІРІРѕРґР°
     if (pos < 0 || length < 0 || pos + length > size_main)
     {
-        std::cout << "Некорректные данные для удаления.\n";
+        std::cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ.\n";
         return 1;
     }
 
     int new_size = size_main - length;
     int* new_arr = new int[new_size];
 
-    // Копируем элементы до позиции удаления
+    // РљРѕРїРёСЂСѓРµРј СЌР»РµРјРµРЅС‚С‹ РґРѕ РїРѕР·РёС†РёРё СѓРґР°Р»РµРЅРёСЏ
     for (int i = 0; i < pos; i++)
     {
         new_arr[i] = arr_main[i];
     }
 
-    // Копируем элементы после блока удаления
+    // РљРѕРїРёСЂСѓРµРј СЌР»РµРјРµРЅС‚С‹ РїРѕСЃР»Рµ Р±Р»РѕРєР° СѓРґР°Р»РµРЅРёСЏ
     for (int i = pos + length; i < size_main; i++)
     {
         new_arr[i - length] = arr_main[i];
@@ -55,7 +55,7 @@ int main()
     arr_main = new_arr;
     size_main = new_size;
 
-    std::cout << "Массив после удаления:\n";
+    std::cout << "РњР°СЃСЃРёРІ РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ:\n";
     for (int i = 0; i < size_main; i++)
     {
         std::cout << arr_main[i] << " ";
