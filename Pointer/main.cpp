@@ -1,9 +1,9 @@
 #include <iostream>
 
-#define MAIN
+//#define MAIN
 //#define PART1
 //#define PART2
-#define PART3
+//#define PART3
 
 int** transposeMatrix(int** matrix, int rows, int cols) 
 {
@@ -26,9 +26,32 @@ int** transposeMatrix(int** matrix, int rows, int cols)
 
 void init(int* a, int b) 
 {
+	srand(time(nullptr));
 	for (int i = 0; i < b; i++) 
 	{
-		a[i] = rand() % 10;
+		a[i] = rand() % (10 + 5 + 1) + 5;
+	}
+}
+
+int* init2(int size)
+{
+	srand(time(nullptr));
+	int* arr = new int[size];
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = rand() % 10;
+	}
+	return arr;
+}
+
+void init(int** arr, int rows, int columns)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < columns; j++)
+		{
+			arr[i][j] = rand() % 10;
+		}
 	}
 }
 
@@ -39,6 +62,45 @@ void show(int* a, int b)
 		std::cout << a[i] << " ";
 	}
 	std::cout << std::endl;
+}
+
+void show(int** arr2, int rows, int cols)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			std::cout << arr2[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+}
+
+void resize(int*& arr2, int& size, int x) 
+{
+	int* temp = new int[size + 1];
+	for (int i = 0; i < size; i++)
+	{
+		temp[i] = arr2[i];
+	}
+	temp[size] = x;
+	delete[] arr2;
+	arr2 = temp;
+	temp = nullptr;
+	size++;
+}
+
+void remove(int*& arr2, int& size) 
+{
+	size--;
+	int* temp = new int[size];
+	for (int i = 0; i < size; i++)
+	{
+		temp[i] = arr2[i];
+	}
+	delete[] arr2;
+	arr2 = temp;
+	temp = nullptr;
 }
 
 #ifdef MAIN
@@ -449,9 +511,69 @@ int main()
 	std::cout << "¬ведите размер массива: ";
 	std::cin >> size;
 	int* arr = new int[size];
+	int* arr2 = init2(size);
 	init(arr, size);
 	show(arr, size);
-	delete[] arr;
+	show(arr2, size);
+	int x;
+	std::cout << "¬ведите число:";
+	std::cin >> x;
+	resize(arr2, size, x);
+	show(arr2, size);
+	remove(arr2, size);
+	show(arr2, size);
+	delete[]arr;
+
+	int rows, cols;
+	std::cout << "¬ведите размеры массива: ";
+	std::cin >> rows >> cols;
+	int** arr3 = new int* [rows];
+	for (int i = 0; i < rows; i++) 
+	{
+		arr3[i] = new int[cols];
+	}
+	init(arr3, rows, cols);
+	show(arr3, rows, cols);
+
+	/*int** temp = new int* [rows - 1];
+	for (int i = 0; i < rows -1; i++)
+	{
+		temp[i] = arr3[i];
+	}
+	delete[]arr3[rows - 1];
+	delete[]arr3;
+	arr3 = temp;
+	temp = nullptr;
+	rows--;*/
+
+	int pos;
+	std::cout << "¬ведите позицию: ";
+	std::cin >> pos;
+	int** temp = new int* [rows - 1];
+	for (int i = 0; i < rows - 1; i++)
+	{
+		if (i < pos)
+		{
+			temp[i] = arr3[i];
+		}
+		else 
+		{
+			temp[i] = arr3[i + (i >= pos)];
+		}
+	}
+	delete[]arr3[pos];
+	delete[]arr3;
+	arr3 = temp;
+	temp = nullptr;
+	rows--;
+
+	show(arr3, rows, cols);
+	for (int i = 0; i < rows; i++)
+	{
+		delete[]arr3[i];
+	}
+	delete[]arr3;
+	
 #endif //PART3
 }
 #endif//MAIN
