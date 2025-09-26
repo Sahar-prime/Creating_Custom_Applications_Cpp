@@ -22,6 +22,7 @@
     <ClCompile Include="home_work.cpp" />
     <ClCompile Include="h_w.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="matrix_multiplication.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
