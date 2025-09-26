@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 
+//#define MATRIX_MULTIPLY
+
 void matrix_multiply(int** A, int** B, int** C, int M, int N, int K) 
 {
     for (int i = 0; i < M; ++i) 
@@ -14,7 +16,7 @@ void matrix_multiply(int** A, int** B, int** C, int M, int N, int K)
         }
     }
 }
-
+#ifdef MATRIX_MULTIPLY
 int main() 
 {
     // Размеры матриц
@@ -82,3 +84,4 @@ int main()
     }
     delete[] C;
 }
+#endif //MATRIX_MULTIPLY

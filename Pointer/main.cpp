@@ -1,10 +1,10 @@
 #include <iostream>
 
-//#define MAIN
+#define MAIN
 //#define PART1
 //#define PART2
+#define PART3
 
-// Функция для транспонирования матрицы
 int** transposeMatrix(int** matrix, int rows, int cols) 
 {
 	// Создаём новую матрицу с размерами cols x rows
@@ -22,6 +22,23 @@ int** transposeMatrix(int** matrix, int rows, int cols)
 		}
 	}
 	return transposed;
+}
+
+void init(int* a, int b) 
+{
+	for (int i = 0; i < b; i++) 
+	{
+		a[i] = rand() % 10;
+	}
+}
+
+void show(int* a, int b)
+{
+	for (int i = 0; i < b; i++)
+	{
+		std::cout << a[i] << " ";
+	}
+	std::cout << std::endl;
 }
 
 #ifdef MAIN
@@ -427,5 +444,14 @@ int main()
 	}
 	delete[] transposedArr;
 #endif //PART2
+#ifdef PART3
+	int size;
+	std::cout << "Введите размер массива: ";
+	std::cin >> size;
+	int* arr = new int[size];
+	init(arr, size);
+	show(arr, size);
+	delete[] arr;
+#endif //PART3
 }
 #endif//MAIN
