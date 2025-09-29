@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="home_work.cpp" />
     <ClCompile Include="h_w.cpp" />
+    <ClCompile Include="h_w2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="matrix_multiplication.cpp" />
   </ItemGroup>

@@ -27,5 +27,8 @@
     <ClCompile Include="matrix_multiplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="h_w2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
