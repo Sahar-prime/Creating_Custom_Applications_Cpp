@@ -1,8 +1,8 @@
-#include <iostream>
+п»ї#include <iostream>
 
 //#define H_W
 
-// Функция сравнения строк
+// Р¤СѓРЅРєС†РёСЏ СЃСЂР°РІРЅРµРЅРёСЏ СЃС‚СЂРѕРє
 int mystrcmp(const char* str1, const char* str2)
 {
     while (*str1 && (*str1 == *str2))
@@ -12,19 +12,19 @@ int mystrcmp(const char* str1, const char* str2)
     }
     if (*str1 == *str2) 
     {
-        return 0; // Строки равны
+        return 0; // РЎС‚СЂРѕРєРё СЂР°РІРЅС‹
     }
     else if (*str1 > *str2)
     {
-        return 1; // Первая строка больше
+        return 1; // РџРµСЂРІР°СЏ СЃС‚СЂРѕРєР° Р±РѕР»СЊС€Рµ
     }
     else 
     {
-        return -1; // Первая строка меньше
+        return -1; // РџРµСЂРІР°СЏ СЃС‚СЂРѕРєР° РјРµРЅСЊС€Рµ
     }
 }
 
-// Функция реверсирования строки
+// Р¤СѓРЅРєС†РёСЏ СЂРµРІРµСЂСЃРёСЂРѕРІР°РЅРёСЏ СЃС‚СЂРѕРєРё
 char* mystrrev(char* str)
 {
     if (!str) return nullptr;
@@ -32,14 +32,14 @@ char* mystrrev(char* str)
     char* start = str;
     char* end = str;
 
-    // Находим конец строки
+    // РќР°С…РѕРґРёРј РєРѕРЅРµС† СЃС‚СЂРѕРєРё
     while (*end) 
     {
         end++;
     }
-    end--; // Указываем на последний символ перед '\0'
+    end--; // РЈРєР°Р·С‹РІР°РµРј РЅР° РїРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР» РїРµСЂРµРґ '\0'
 
-    // Меняем местами символы
+    // РњРµРЅСЏРµРј РјРµСЃС‚Р°РјРё СЃРёРјРІРѕР»С‹
     while (start < end) 
     {
         char temp = *start;
@@ -52,7 +52,7 @@ char* mystrrev(char* str)
     return str;
 }
 
-// Функция преобразования строки в верхний регистр
+// Р¤СѓРЅРєС†РёСЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ СЃС‚СЂРѕРєРё РІ РІРµСЂС…РЅРёР№ СЂРµРіРёСЃС‚СЂ
 char* Uppercase(char* str) 
 {
     if (!str) return nullptr;
@@ -62,14 +62,14 @@ char* Uppercase(char* str)
     {
         if (*ptr >= 'a' && *ptr <= 'z')
         {
-            *ptr -= 32; // Преобразуем в верхний регистр
+            *ptr -= 32; // РџСЂРµРѕР±СЂР°Р·СѓРµРј РІ РІРµСЂС…РЅРёР№ СЂРµРіРёСЃС‚СЂ
         }
         ptr++;
     }
     return str;
 }
 
-// Функция преобразования строки в нижний регистр
+// Р¤СѓРЅРєС†РёСЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ СЃС‚СЂРѕРєРё РІ РЅРёР¶РЅРёР№ СЂРµРіРёСЃС‚СЂ
 char* Lowercase(char* str) 
 {
     if (!str) return nullptr;
@@ -80,7 +80,7 @@ char* Lowercase(char* str)
 
         if (*ptr >= 'A' && *ptr <= 'Z')
         {
-            *ptr += 32; // Преобразуем в нижний регистр
+            *ptr += 32; // РџСЂРµРѕР±СЂР°Р·СѓРµРј РІ РЅРёР¶РЅРёР№ СЂРµРіРёСЃС‚СЂ
         }
         ptr++;
     }
@@ -95,10 +95,10 @@ int main()
     char s3[] = "hello";
     char str1[] = "Hello, World!";
     char str2[] = "HELLO, WORLD!";
-    int cmp = mystrcmp(s1, s2); // Вернёт отрицательное число
-    mystrrev(s3); // Теперь s3 содержит "olleh"
-    Uppercase(str1); // Теперь str1 содержит "HELLO, WORLD!"
-    Lowercase(str2); // Теперь str2 содержит "hello, world!"
+    int cmp = mystrcmp(s1, s2); // Р’РµСЂРЅС‘С‚ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ
+    mystrrev(s3); // РўРµРїРµСЂСЊ s3 СЃРѕРґРµСЂР¶РёС‚ "olleh"
+    Uppercase(str1); // РўРµРїРµСЂСЊ str1 СЃРѕРґРµСЂР¶РёС‚ "HELLO, WORLD!"
+    Lowercase(str2); // РўРµРїРµСЂСЊ str2 СЃРѕРґРµСЂР¶РёС‚ "hello, world!"
     std::cout << cmp << std::endl;
     std::cout << s3 << std::endl;
     std::cout << str1 << std::endl;
