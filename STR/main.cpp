@@ -1,9 +1,9 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 
 //#define MAIN
 
-// Определение длины строки
+// РћРїСЂРµРґРµР»РµРЅРёРµ РґР»РёРЅС‹ СЃС‚СЂРѕРєРё
 int mystrlen(const char* str)
 {
 	int length = 0;
@@ -14,7 +14,7 @@ int mystrlen(const char* str)
 	return length;
 }
 
-// Копирование строки str2 в str1
+// РљРѕРїРёСЂРѕРІР°РЅРёРµ СЃС‚СЂРѕРєРё str2 РІ str1
 char* mystrcpy(char* str1, const char* str2)
 {
 	int i = 0;
@@ -27,7 +27,7 @@ char* mystrcpy(char* str1, const char* str2)
 	return str1;
 }
 
-// Конкатенация строк: присоединяет str2 к str1
+// РљРѕРЅРєР°С‚РµРЅР°С†РёСЏ СЃС‚СЂРѕРє: РїСЂРёСЃРѕРµРґРёРЅСЏРµС‚ str2 Рє str1
 char* mystrcat(char* str1, const char* str2)
 {
 	int len1 = mystrlen(str1);
@@ -39,7 +39,7 @@ char* mystrcat(char* str1, const char* str2)
 	return str1;
 }
 
-// Поиск символа s в строке str
+// РџРѕРёСЃРє СЃРёРјРІРѕР»Р° s РІ СЃС‚СЂРѕРєРµ str
 char* mystrchr(char* str, char s)
 {
 	while (*str != '\0')
@@ -50,10 +50,10 @@ char* mystrchr(char* str, char s)
 		}
 		str++;
 	}
-	return nullptr; // 0, если символ не найден
+	return nullptr; // 0, РµСЃР»Рё СЃРёРјРІРѕР» РЅРµ РЅР°Р№РґРµРЅ
 }
 
-// Поиск подстроки str2 в строке str1
+// РџРѕРёСЃРє РїРѕРґСЃС‚СЂРѕРєРё str2 РІ СЃС‚СЂРѕРєРµ str1
 char* mystrstr(char* str1, char* str2)
 {
 	int len2 = mystrlen(str2);
@@ -77,7 +77,7 @@ char* mystrstr(char* str1, char* str2)
 		}
 		str1++;
 	}
-	return nullptr; // 0, если подстрока не найдена
+	return nullptr; // 0, РµСЃР»Рё РїРѕРґСЃС‚СЂРѕРєР° РЅРµ РЅР°Р№РґРµРЅР°
 }
 
 #ifdef MAIN
@@ -89,25 +89,25 @@ void main()
 	char str[10]; //= "Hello";
 	std::cin >> str;
 	std::cout << str << std::endl;
-	//Длина строки
+	//Р”Р»РёРЅР° СЃС‚СЂРѕРєРё
 	std::cout << strlen(str) << std::endl;
-	//strcat() - конкатенация (сложение строк)
+	//strcat() - РєРѕРЅРєР°С‚РµРЅР°С†РёСЏ (СЃР»РѕР¶РµРЅРёРµ СЃС‚СЂРѕРє)
 	char str1[10] = "qwerty";
 	char str2[20] = "test";
 	strcat(str2, str1);
 	//strcat_s(str2, strlen(str1)+strlen(str2) + 1, str1);
 	std::cout << str2 << std::endl;
-	//strcpy() - копирование строки
+	//strcpy() - РєРѕРїРёСЂРѕРІР°РЅРёРµ СЃС‚СЂРѕРєРё
 	char copy[20];
 	strcpy(copy, str2);
 	std::cout << copy << std::endl;
-	if (strstr(copy, "qwe")) //возращает указатель на начало вхождения
+	if (strstr(copy, "qwe")) //РІРѕР·СЂР°С‰Р°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ РІС…РѕР¶РґРµРЅРёСЏ
 	{
-		std::cout << "Подстрока\n";
+		std::cout << "РџРѕРґСЃС‚СЂРѕРєР°\n";
 	}
 	else
 	{
-		std::cout << "Не подстрока\n";
+		std::cout << "РќРµ РїРѕРґСЃС‚СЂРѕРєР°\n";
 	}
 	//strchr(copy, "a");
 	_strupr(copy);
@@ -124,46 +124,46 @@ void main()
 	std::cout << ptr << std::endl;
 	delete[]ptr;
 
-	//запросить в 3 массива у студента: ФИО
-	//собрать ФИО в новую строку (динамика)
+	//Р·Р°РїСЂРѕСЃРёС‚СЊ РІ 3 РјР°СЃСЃРёРІР° Сѓ СЃС‚СѓРґРµРЅС‚Р°: Р¤РРћ
+	//СЃРѕР±СЂР°С‚СЊ Р¤РРћ РІ РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ (РґРёРЅР°РјРёРєР°)
 	char surname[50];
 	char name[50];
 	char patronymic[50];
-	// Запрос данных у студента
-	std::cout << "Введите фамилию: ";
+	// Р—Р°РїСЂРѕСЃ РґР°РЅРЅС‹С… Сѓ СЃС‚СѓРґРµРЅС‚Р°
+	std::cout << "Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ: ";
 	std::cin >> surname;
-	std::cout << "Введите имя: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ: ";
 	std::cin >> name;
-	std::cout << "Введите отчество: ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РѕС‚С‡РµСЃС‚РІРѕ: ";
 	std::cin >> patronymic;
-	// Вычисляем общую длину для динамической строки
-	int fullLength = strlen(surname) + strlen(name) + strlen(patronymic) + 3; // +2 для пробелов и +1 для '\0'
-	// Выделяем память под новую строку
+	// Р’С‹С‡РёСЃР»СЏРµРј РѕР±С‰СѓСЋ РґР»РёРЅСѓ РґР»СЏ РґРёРЅР°РјРёС‡РµСЃРєРѕР№ СЃС‚СЂРѕРєРё
+	int fullLength = strlen(surname) + strlen(name) + strlen(patronymic) + 3; // +2 РґР»СЏ РїСЂРѕР±РµР»РѕРІ Рё +1 РґР»СЏ '\0'
+	// Р’С‹РґРµР»СЏРµРј РїР°РјСЏС‚СЊ РїРѕРґ РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ
 	char* fullName = new char[fullLength];
-	// Собираем ФИО в одну строку
+	// РЎРѕР±РёСЂР°РµРј Р¤РРћ РІ РѕРґРЅСѓ СЃС‚СЂРѕРєСѓ
 	strcpy(fullName, surname);
 	strcat(fullName, " ");
 	strcat(fullName, name);
 	strcat(fullName, " ");
 	strcat(fullName, patronymic);
-	// Выводим результат
-	std::cout << "Полное ФИО: " << fullName << std::endl;
-	// Освобождаем выделенную память
+	// Р’С‹РІРѕРґРёРј СЂРµР·СѓР»СЊС‚Р°С‚
+	std::cout << "РџРѕР»РЅРѕРµ Р¤РРћ: " << fullName << std::endl;
+	// РћСЃРІРѕР±РѕР¶РґР°РµРј РІС‹РґРµР»РµРЅРЅСѓСЋ РїР°РјСЏС‚СЊ
 	delete[] fullName;
 	std::cout << strcmp(str1, str2) << std::endl;
 	char s1[10] = "cat123";
 	char s2[10] = "cat";
 	if (strcmp(s1, s2) < 0)
 	{
-		std::cout << "Первая строка меньше\n";
+		std::cout << "РџРµСЂРІР°СЏ СЃС‚СЂРѕРєР° РјРµРЅСЊС€Рµ\n";
 	}
 	else if (strcmp(s1, s2) > 0)
 	{
-		std::cout << "Первая строка больше\n";
+		std::cout << "РџРµСЂРІР°СЏ СЃС‚СЂРѕРєР° Р±РѕР»СЊС€Рµ\n";
 	}
 	else
 	{
-		std::cout << "Строки равны\n";
+		std::cout << "РЎС‚СЂРѕРєРё СЂР°РІРЅС‹\n";
 	}
 
 }
