@@ -2,6 +2,7 @@
 
 //#define MAIN
 
+#ifdef MAIN
 struct Date
 {
     int day;
@@ -193,7 +194,6 @@ void show(const cl_iron& c)
     std::cout << "Подача пара: " << (c.steam_supply ? "да" : "нет") << std::endl;
 }
 
-#ifdef MAIN
 int main()
 {
     setlocale(LC_ALL, "");
