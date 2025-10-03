@@ -2,234 +2,146 @@
 
 //#define MAIN
 
-#ifdef MAIN
-struct Date
+struct Student
 {
-    int day;
-    int month;
-    int year;
+	char fio[50];
+	int marks[3];
 };
 
-struct W_machine
+struct Class 
 {
-    char f[20];
-    char col[20];
-    float w;
-    float l;
-    float h;
-    float m;
-    float sp;
-    float temp;
+	char name[4]; //11б\0
+	/*Student stud[3];*/
+	Student* stud;
+	int counter;
 };
 
-struct cl_iron
+struct Product 
 {
-    char f[20];
-    char col[20];
-    float min_temp;
-    float max_temp;
-    bool steam_supply;
-    float m;
+	char productName[50];
+	double productPrice; 
 };
 
-struct Car
+struct Order 
 {
-    char col[20];
-    float V;
-    float l;
-    float h;
-    float m;
-    float d;
-    bool automat;
-};
-
-struct Boss
-{
-    char comp[22];
-    Car m;
-};
-
-struct Employee
-{
-    char fio[65];
-    Date start;
+	int orderNumber;     
+	Product* products;
+	int productCount;  
 };
 
 // Функции инициализации
-void init(Car& a)
+void init(Product& p)
 {
-    std::cout << "Цвет машины: ";
-    std::cin >> a.col;
-    std::cout << "Объём двигателя: ";
-    std::cin >> a.V;
-    std::cout << "Длина: ";
-    std::cin >> a.l;
-    std::cout << "Высота: ";
-    std::cin >> a.h;
-    std::cout << "Мощность: ";
-    std::cin >> a.m;
-    std::cout << "Диаметр колёс: ";
-    std::cin >> a.d;
-    std::cout << "Коробка передач (1-автоматическая, 0-механическая): ";
-    std::cin >> a.automat;
+	std::cout << "Название товара: ";
+	std::cin.get();
+	std::cin.getline(p.productName, 50);
+	std::cout << "Цена товара: ";
+	std::cin >> p.productPrice;
 }
 
-void init(Boss& a)
+void init(Order& o)
 {
-    std::cout << "Компания: ";
-    std::cin.ignore();
-    std::cin.getline(a.comp, 22);
-    std::cout << "Машина: " << std::endl;
-    init(a.m);
+	std::cout << "Номер заказа: ";
+	std::cin >> o.orderNumber;
+	std::cin.get();
+
+	std::cout << "Количество товаров: ";
+	std::cin >> o.productCount;
+	std::cin.get();
+
+	o.products = new Product[o.productCount];
+
+	for (int i = 0; i < o.productCount; ++i)
+	{
+		std::cout << "\nТовар #" << i + 1 << ":" << std::endl;
+		init(o.products[i]);
+	}
 }
 
-void init(Employee& e)
+void init(Student& a) 
 {
-    std::cout << "ФИО: ";
-    std::cin.ignore();
-    std::cin.getline(e.fio, 65);
-    std::cout << "Дата начала: " << std::endl;
-    init(e.start);
+	std::cout << "Введите ФИО: ";
+	//std::cin >> a.fio;
+	std::cin.getline(a.fio, 50);
+	std::cout << "Введите оценки: ";
+	for (int i = 0; i < 3; i++) 
+	{
+		std::cin >> a.marks[i];
+	}
 }
 
-void init(Date& d)
+void init(Class& c)
 {
-    std::cout << "Введите день: ";
-    std::cin >> d.day;
-    std::cout << "Введите месяц: ";
-    std::cin >> d.month;
-    std::cout << "Введите год: ";
-    std::cin >> d.year;
-    std::cout << std::endl;
-}
-
-void init(cl_iron& c)
-{
-    std::cout << "Введите фирму: ";
-    std::cin >> c.f;
-    std::cout << "Введите цвет: ";
-    std::cin >> c.col;
-    std::cout << "Введите подачу пара (1-да, 0-нет): ";
-    std::cin >> c.steam_supply;
-    std::cout << "Введите мощность: ";
-    std::cin >> c.m;
-    std::cout << "Введите минимальную температуру: ";
-    std::cin >> c.min_temp;
-    std::cout << "Введите максимальную температуру: ";
-    std::cin >> c.max_temp;
-    std::cout << std::endl;
-}
-
-void init(W_machine& c)
-{
-    std::cout << "Введите фирму: ";
-    std::cin >> c.f;
-    std::cout << "Введите цвет: ";
-    std::cin >> c.col;
-    std::cout << "Введите длину: ";
-    std::cin >> c.l;
-    std::cout << "Введите высоту: ";
-    std::cin >> c.h;
-    std::cout << "Введите ширину: ";
-    std::cin >> c.w;
-    std::cout << "Введите мощность: ";
-    std::cin >> c.m;
-    std::cout << "Введите скорость отжима: ";
-    std::cin >> c.sp;
-    std::cout << "Введите температуру нагрева: ";
-    std::cin >> c.temp;
-    std::cout << std::endl;
+	std::cout << "Введите класс: ";
+	std::cin >> c.name;
+	std::cout << "Введите кол-во студентов: ";
+	std::cin >> c.counter;
+	c.stud = new Student[c.counter];
+	for (int i = 0; i < c.counter; i++) 
+	{
+		getchar();
+		std::cout << "Введите ФИО: ";
+		//std::cin >> a.fio;
+		std::cin.getline(c.stud[i].fio, 50);
+		std::cout << "Введите оценки: ";
+		for (int i = 0; i < 3; i++)
+		{
+			std::cin >> c.stud[i].marks[i];
+		}
+	}
 }
 
 // Функции вывода
-void show(const Car& a)
+void show(const Product& p)
 {
-    std::cout << "Цвет: " << a.col << std::endl;
-    std::cout << "Объём: " << a.V << std::endl;
-    std::cout << "Длина: " << a.l << std::endl;
-    std::cout << "Высота: " << a.h << std::endl;
-    std::cout << "Мощность: " << a.m << std::endl;
-    std::cout << "Диаметр колёс: " << a.d << std::endl;
-    std::cout << "Коробка передач: " << (a.automat ? "Автоматическая" : "Механическая") << std::endl;
+	std::cout << "Товар: " << p.productName << ", Цена: " << p.productPrice << std::endl;
 }
 
-void show(const Boss& a)
+void show(const Order& o)
 {
-    std::cout << "Компания: " << a.comp << std::endl;
-    std::cout << "Машина: " << std::endl;
-    show(a.m);
+	std::cout << "\nНомер заказа: " << o.orderNumber << std::endl;
+	std::cout << "Список товаров:" << std::endl;
+	for (int i = 0; i < o.productCount; ++i)
+	{
+		show(o.products[i]);
+	}
 }
 
-void show(const Employee& e)
+void show(const Class c)
 {
-    std::cout << "ФИО: " << e.fio << std::endl;
-    std::cout << "Дата начала: ";
-    show(e.start);
+	std::cout << "Класс: " << c.name << std::endl;
+	std::cout << "Оценки: ";
+	for (int i = 0; i < c.counter; i++)
+	{
+		std::cout << c.stud[i].marks[i];
+	}
+	std::cout << std::endl;
 }
 
-void show(const Date& d)
+void show(const Student a)
 {
-    std::cout << d.day << "." << d.month << "." << d.year << std::endl;
+	std::cout << "Фио: " << a.fio << std::endl;
+	std::cout << "Оценки: ";
+	for (int i = 0; i < 3; i ++) 
+	{
+		std::cout << a.marks[i] << " ";
+	}
+	std::cout << std::endl;
 }
 
-void show(const W_machine& c)
+#ifdef MAIN
+int main() 
 {
-    std::cout << "Фирма: " << c.f << std::endl;
-    std::cout << "Цвет: " << c.col << std::endl;
-    std::cout << "Длина: " << c.l << std::endl;
-    std::cout << "Высота: " << c.h << std::endl;
-    std::cout << "Ширина: " << c.w << std::endl;
-    std::cout << "Мощность: " << c.m << std::endl;
-    std::cout << "Скорость отжима: " << c.sp << std::endl;
-    std::cout << "Температура нагрева: " << c.temp << std::endl;
-}
+	setlocale(LC_ALL, "");
 
-void show(const cl_iron& c)
-{
-    std::cout << "Фирма: " << c.f << std::endl;
-    std::cout << "Цвет: " << c.col << std::endl;
-    std::cout << "Мощность: " << c.m << std::endl;
-    std::cout << "Минимальная температура: " << c.min_temp << std::endl;
-    std::cout << "Максимальная температура: " << c.max_temp << std::endl;
-    std::cout << "Подача пара: " << (c.steam_supply ? "да" : "нет") << std::endl;
-}
+	Class c;
+	init(c);
+	show(c);
 
-int main()
-{
-    setlocale(LC_ALL, "");
+	Order order;
+	init(order);
+	show(order);
 
-    Date d;
-    init(d);
-    show(d);
 
-    W_machine c;
-    init(c);
-    show(c);
-
-    int size;
-    std::cout << "Введите количество утюгов: ";
-    std::cin >> size;
-    cl_iron* arr = new cl_iron[size];
-    for (int i = 0; i < size; i++)
-    {
-        init(arr[i]);
-    }
-    for (int i = 0; i < size; i++)
-    {
-        show(arr[i]);
-    }
-    delete[] arr;
-
-    Employee e;
-    init(e);
-    show(e);
-
-    Car h;
-    init(h);
-    show(h);
-
-    Boss t;
-    init(t);
-    show(t);
 }
 #endif //MAIN
