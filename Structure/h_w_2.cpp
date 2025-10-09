@@ -1,16 +1,16 @@
-#include <iostream>
+п»ї#include <iostream>
 
 //#define H_W_2
 
-// Структура для задачи
+// РЎС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ Р·Р°РґР°С‡Рё
 struct Task
 {
-    char* taskName;          // Название задачи (динамическая строка)
-    char* taskDescription;   // Описание задачи (динамическая строка)
-    bool taskStatus;         // Статус задачи: true - выполнена, false - не выполнена
+    char* taskName;          // РќР°Р·РІР°РЅРёРµ Р·Р°РґР°С‡Рё (РґРёРЅР°РјРёС‡РµСЃРєР°СЏ СЃС‚СЂРѕРєР°)
+    char* taskDescription;   // РћРїРёСЃР°РЅРёРµ Р·Р°РґР°С‡Рё (РґРёРЅР°РјРёС‡РµСЃРєР°СЏ СЃС‚СЂРѕРєР°)
+    bool taskStatus;         // РЎС‚Р°С‚СѓСЃ Р·Р°РґР°С‡Рё: true - РІС‹РїРѕР»РЅРµРЅР°, false - РЅРµ РІС‹РїРѕР»РЅРµРЅР°
 };
 
-// Структура для проекта
+// РЎС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ РїСЂРѕРµРєС‚Р°
 struct SoftwareProject 
 {
     char* projectName;            
@@ -33,7 +33,7 @@ void copyString(char*& dest, const char* src)
     }
 }
 
-// Функция для инициализации задачи
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё Р·Р°РґР°С‡Рё
 void initTask(Task& task, const char* name, const char* description, bool status) 
 {
     copyString(task.taskName, name);
@@ -41,14 +41,14 @@ void initTask(Task& task, const char* name, const char* description, bool status
     task.taskStatus = status;
 }
 
-// Функция для освобождения памяти задачи
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕСЃРІРѕР±РѕР¶РґРµРЅРёСЏ РїР°РјСЏС‚Рё Р·Р°РґР°С‡Рё
 void freeTask(Task& task) 
 {
     delete[] task.taskName;
     delete[] task.taskDescription;
 }
 
-// Функция для инициализации проекта
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РїСЂРѕРµРєС‚Р°
 void initProject(SoftwareProject& project, const char* name, const char* description)
 {
     copyString(project.projectName, name);
@@ -57,7 +57,7 @@ void initProject(SoftwareProject& project, const char* name, const char* descrip
     project.taskCount = 0;
 }
 
-// Функция для освобождения памяти проекта
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕСЃРІРѕР±РѕР¶РґРµРЅРёСЏ РїР°РјСЏС‚Рё РїСЂРѕРµРєС‚Р°
 void freeProject(SoftwareProject& project) 
 {
     delete[] project.projectName;
@@ -71,7 +71,7 @@ void freeProject(SoftwareProject& project)
     delete[] project.tasks;
 }
 
-// Функция для добавления задачи в проект
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ Р·Р°РґР°С‡Рё РІ РїСЂРѕРµРєС‚
 void addTask(SoftwareProject& project, const char* name, const char* description, bool status)
 {
     Task* newTasks = new Task[project.taskCount + 1];
@@ -94,28 +94,28 @@ int main()
     setlocale(LC_ALL, "");
 
     SoftwareProject myProject;
-    initProject(myProject, "Калькулятор", "Проект для решения простых примеров.");
+    initProject(myProject, "РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ", "РџСЂРѕРµРєС‚ РґР»СЏ СЂРµС€РµРЅРёСЏ РїСЂРѕСЃС‚С‹С… РїСЂРёРјРµСЂРѕРІ.");
 
-    // Добавление задач
-    addTask(myProject, "Сложение", "Сложить введеные числа", true);
-    addTask(myProject, "Вычитание", "Вычесть введеные числа", true);
-    addTask(myProject, "Умножение", "Умножить введеные числа", true);
-    addTask(myProject, "Деление", "Делить введеные числа", true);
-    addTask(myProject, "Степени", "Возводить в степень введеные числа", false);
-    addTask(myProject, "Корни", "Возводить в корень введеные числа", false);
+    // Р”РѕР±Р°РІР»РµРЅРёРµ Р·Р°РґР°С‡
+    addTask(myProject, "РЎР»РѕР¶РµРЅРёРµ", "РЎР»РѕР¶РёС‚СЊ РІРІРµРґРµРЅС‹Рµ С‡РёСЃР»Р°", true);
+    addTask(myProject, "Р’С‹С‡РёС‚Р°РЅРёРµ", "Р’С‹С‡РµСЃС‚СЊ РІРІРµРґРµРЅС‹Рµ С‡РёСЃР»Р°", true);
+    addTask(myProject, "РЈРјРЅРѕР¶РµРЅРёРµ", "РЈРјРЅРѕР¶РёС‚СЊ РІРІРµРґРµРЅС‹Рµ С‡РёСЃР»Р°", true);
+    addTask(myProject, "Р”РµР»РµРЅРёРµ", "Р”РµР»РёС‚СЊ РІРІРµРґРµРЅС‹Рµ С‡РёСЃР»Р°", true);
+    addTask(myProject, "РЎС‚РµРїРµРЅРё", "Р’РѕР·РІРѕРґРёС‚СЊ РІ СЃС‚РµРїРµРЅСЊ РІРІРµРґРµРЅС‹Рµ С‡РёСЃР»Р°", false);
+    addTask(myProject, "РљРѕСЂРЅРё", "Р’РѕР·РІРѕРґРёС‚СЊ РІ РєРѕСЂРµРЅСЊ РІРІРµРґРµРЅС‹Рµ С‡РёСЃР»Р°", false);
     
-    // Вывод информации о проекте
-    std::cout << "Название проекта: " << myProject.projectName << std::endl;
-    std::cout << "Описание проекта: " << myProject.projectDescription << std::endl;
-    std::cout << "Список задач:" << std::endl;
+    // Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїСЂРѕРµРєС‚Рµ
+    std::cout << "РќР°Р·РІР°РЅРёРµ РїСЂРѕРµРєС‚Р°: " << myProject.projectName << std::endl;
+    std::cout << "РћРїРёСЃР°РЅРёРµ РїСЂРѕРµРєС‚Р°: " << myProject.projectDescription << std::endl;
+    std::cout << "РЎРїРёСЃРѕРє Р·Р°РґР°С‡:" << std::endl;
 
     for (int i = 0; i < myProject.taskCount; ++i)
     {
-        std::cout << "- " << myProject.tasks[i].taskName << " (Статус: " << (myProject.tasks[i].taskStatus ? "выполнена" : "не выполнена") << ")" << std::endl;
-        std::cout << "  Описание: " << myProject.tasks[i].taskDescription << std::endl;
+        std::cout << "- " << myProject.tasks[i].taskName << " (РЎС‚Р°С‚СѓСЃ: " << (myProject.tasks[i].taskStatus ? "РІС‹РїРѕР»РЅРµРЅР°" : "РЅРµ РІС‹РїРѕР»РЅРµРЅР°") << ")" << std::endl;
+        std::cout << "  РћРїРёСЃР°РЅРёРµ: " << myProject.tasks[i].taskDescription << std::endl;
     }
 
-    // Освобождение памяти
+    // РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
     freeProject(myProject);
 }
 #endif //H_W_2
