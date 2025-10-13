@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 //#define MAIN_2
 
@@ -11,11 +11,11 @@ struct Task
 
 void init(Task& t)
 {
-    std::cout << "Ââåäè íàçâàíèå: ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ: ";
     std::cin.getline(t.title, 50);
-    std::cout << "Ââåäè îïèñàíèå: ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ: ";
     std::cin.getline(t.description, 150);
-    std::cout << "Ââåäè ñòàòóñ (1 - âûïîëíåíà, 0 - íå âûïîëíåíà): ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸ ÑÑ‚Ð°Ñ‚ÑƒÑ (1 - Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð°, 0 - Ð½Ðµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð°): ";
     std::cin >> t.status;
 }
 
@@ -30,9 +30,9 @@ void init(Task* t, int size)
 
 void show(const Task& t)
 {
-    std::cout << "íàçâàíèå: " << t.title << std::endl;
-    std::cout << "îïèñàíèå: " << t.description << std::endl;
-    std::cout << "ñòàòóñ: " << (t.status ? "âûïîëíåíà" : "íå âûïîëíåíà") << std::endl;
+    std::cout << "Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ: " << t.title << std::endl;
+    std::cout << "Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ: " << t.description << std::endl;
+    std::cout << "ÑÑ‚Ð°Ñ‚ÑƒÑ: " << (t.status ? "Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð°" : "Ð½Ðµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð°") << std::endl;
 }
 
 void show(Task* t, int size)
@@ -116,7 +116,7 @@ int main()
 {
     setlocale(0, "");
     int size;
-    std::cout << "Ââåäè ðàçìåð: ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸ Ñ€Ð°Ð·Ð¼ÐµÑ€: ";
     std::cin >> size;
     Task* t = new Task[size];
     init(t, size);
@@ -125,7 +125,7 @@ int main()
     addTask(t, size, a);
     /*show(t, size);
     int user;
-    std::cout << "Ó êàêîé õàäà÷è ïåðêëþ÷èòü ñòàòóñ: ";
+    std::cout << "Ð£ ÐºÐ°ÐºÐ¾Ð¹ Ñ…Ð°Ð´Ð°Ñ‡Ð¸ Ð¿ÐµÑ€ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÑÑ‚Ð°Ñ‚ÑƒÑ: ";
     std::cin >> user;
     statusChange(t, user);
     show(t, size);
