@@ -125,7 +125,7 @@ int main()
     addTask(t, size, a);
     /*show(t, size);
     int user;
-    std::cout << "У какой хадачи перключить статус: ";
+    std::cout << "У какой задачи перключить статус: ";
     std::cin >> user;
     statusChange(t, user);
     show(t, size);
