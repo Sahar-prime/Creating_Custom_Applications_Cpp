@@ -29,9 +29,10 @@ struct PodarochnyiNabor
 //Функция ввода
 void entering_information(PodarochnyiNabor& nabor)
 {
-    //Ввод данных для бритвы
     cout << "Введите название подарочного набора: ";
     cin.getline(nabor.nazvanie, 100);
+
+    //Ввод данных для бритвы
     cout << "--- Данные для бритвы ---" << endl;
     cout << "Производитель: ";
     cin.getline(nabor.britva.proizvoditel, 50);
