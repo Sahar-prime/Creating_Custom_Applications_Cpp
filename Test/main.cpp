@@ -26,7 +26,8 @@ struct PodarochnyiNabor
     GelDlyaBritya gel;
 };
 
-void init(PodarochnyiNabor& nabor)
+//Функция ввода
+void entering_information(PodarochnyiNabor& nabor)
 {
     //Ввод данных для бритвы
     cout << "Введите название подарочного набора: ";
@@ -45,6 +46,7 @@ void init(PodarochnyiNabor& nabor)
     cin.getline(nabor.gel.tip, 50);
 }
 
+//Функция вывода
 void printed_information(const PodarochnyiNabor& nabor)
 {
     cout << endl << "--- Содержимое подарочного набора ---" << endl;
@@ -63,7 +65,7 @@ int main()
     setlocale(LC_ALL, "");
 
     PodarochnyiNabor product;
-    init(product);
+    entering_information(product);
     printed_information(product);
 }
 #endif //MAIN
