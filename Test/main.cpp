@@ -1,24 +1,23 @@
-﻿#include <iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
 
 //#define MAIN
 
-using namespace std;
-
-//Структура для бритвы (2 характеристики)
+// Структура для бритвы
 struct Britva
 {
     char proizvoditel[50];
     char model[50];
 };
 
-//Структура для геля для бритья (2 характеристики)
+// Структура для геля для бритья
 struct GelDlyaBritya
 {
     char marka[50];
     char tip[50];
 };
 
-//Структура для подарочного набора
+// Структура для подарочного набора
 struct PodarochnyiNabor
 {
     char nazvanie[100];
@@ -26,53 +25,53 @@ struct PodarochnyiNabor
     GelDlyaBritya gel;
 };
 
-//Функция ввода
-void entering_information(PodarochnyiNabor& nabor)
+// Функция инициализации одного подарочного набора
+void init(PodarochnyiNabor& nabor)
 {
-    cout << "Введите название подарочного набора: ";
-    cin.getline(nabor.nazvanie, 100);
+    std::cout << "Введите название подарочного набора: ";
+    std::cin.ignore();
+    std::cin.getline(nabor.nazvanie, 100);
 
-    //Ввод данных для бритвы
-    cout << "--- Данные для бритвы ---" << endl;
-    cout << "Производитель: ";
-    cin.getline(nabor.britva.proizvoditel, 50);
-    cout << "Модель: ";
-    cin.getline(nabor.britva.model, 50);
+    std::cout << "--- Данные для бритвы ---" << std::endl;
+    std::cout << "Производитель: ";
+    std::cin.getline(nabor.britva.proizvoditel, 50);
+    std::cout << "Модель: ";
+    std::cin.getline(nabor.britva.model, 50);
 
-    //Ввод данных для геля
-    cout << "--- Данные для геля для бритья ---" << endl;
-    cout << "Марка: ";
-    cin.getline(nabor.gel.marka, 50);
-    cout << "Тип (например, для чувствительной кожи): ";
-    cin.getline(nabor.gel.tip, 50);
+    std::cout << "--- Данные для геля для бритья ---" << std::endl;
+    std::cout << "Марка: ";
+    std::cin.getline(nabor.gel.marka, 50);
+    std::cout << "Тип (например, для чувствительной кожи): ";
+    std::cin.getline(nabor.gel.tip, 50);
 }
 
-//Функция вывода
-void printed_information(const PodarochnyiNabor& nabor)
+// Функция вывода информации о подарочном наборе
+void printNabor(const PodarochnyiNabor& nabor)
 {
-    cout << endl << "--- Содержимое подарочного набора ---" << endl;
-    cout << "Название набора: " << nabor.nazvanie << endl;
-    cout << "Бритва:" << endl;
-    cout << "  Производитель: " << nabor.britva.proizvoditel << endl;
-    cout << "  Модель: " << nabor.britva.model << endl;
-    cout << "Гель для бритья:" << endl;
-    cout << "  Марка: " << nabor.gel.marka << endl;
-    cout << "  Тип: " << nabor.gel.tip << endl;
+    std::cout << "Название набора: " << nabor.nazvanie << "\n";
+    std::cout << "Бритва:\n";
+    std::cout << "  Производитель: " << nabor.britva.proizvoditel << "\n";
+    std::cout << "  Модель: " << nabor.britva.model << "\n";
+    std::cout << "Гель для бритья:\n";
+    std::cout << "  Марка: " << nabor.gel.marka << "\n";
+    std::cout << "  Тип: " << nabor.gel.tip << "\n\n";
 }
 
 #ifdef MAIN
 int main()
 {
     setlocale(LC_ALL, "");
+    const int MAX_NABORS = 100;
+    PodarochnyiNabor nabors[MAX_NABORS];
+    int naborCount = 0;
 
-    PodarochnyiNabor product;
-    entering_information(product);
-    printed_information(product);
+    std::cout << "Добавление нового подарочного набора:\n";
+    init(nabors[naborCount]);
+    naborCount++;
+
+    for (int i = 0; i < naborCount; ++i)
+    {
+        printNabor(nabors[i]);
+    }
 }
 #endif //MAIN
-
-/*
-Создать структуру бритва (2 характеристики на выбор)
-и гель для бритья (2 характеристики на выбор).
-Собрать подарочный набор с доп. полем название.
-*/
