@@ -67,4 +67,4 @@ int main()
     entering_information(product);
     printed_information(product);
 }
-#endif //MAIN
+#endif //MAINаа
