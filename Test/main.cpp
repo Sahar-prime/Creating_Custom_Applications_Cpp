@@ -67,4 +67,4 @@ int main()
     entering_information(product);
     printed_information(product);
 }
-#endif //MAIN добавь к коду массивы
+#endif //MAIN
